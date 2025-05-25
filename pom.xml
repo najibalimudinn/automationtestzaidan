@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.b2</groupId>
+    <artifactId>automationtestzaidan</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cucumber.version>7.22.2</cucumber.version>
+        <selenium.version>4.33.0</selenium.version>
+        <webdrivermanager.version>6.1.0</webdrivermanager.version>
+        <testng.version>7.9.0</testng.version>
+        <slf4j.simple.version>1.7.36</slf4j.simple.version>
+
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- Add cucumber dependency -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- Add cucumber testng dependency -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Add selenium dependency -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Add TestNG dependency -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Add WebDriverManager dependency -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <!-- Add SLF4J Simple dependency -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.simple.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- maven-source-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.2.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>jar-no-fail</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- maven-compiler-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.plugin.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+
+                <!-- maven-surefire-plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
