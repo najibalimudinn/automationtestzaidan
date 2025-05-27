@@ -35,3 +35,13 @@ Feature: Login
     Examples:
       | username  | password  |
       | bendahara | admin123  |
+
+  @InvalidCredentials @TC002
+  Scenario Outline: Check login is un-successful with invalid credentials. Its is username not registered
+    When User enters "<username>" & "<password>"
+    And User clicks on login button
+    Then User should be able to see "<un-successful login notification message>"
+
+    Examples:
+        | username  | password  | un-successful login notification message  |
+        | indra     | admin123  | Incorrect username or password, please try again!              |

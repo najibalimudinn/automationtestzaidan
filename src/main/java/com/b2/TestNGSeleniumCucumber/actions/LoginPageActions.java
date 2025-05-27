@@ -20,4 +20,8 @@ public class LoginPageActions {
     public void clickLoginButton() {
         loginPageLocators.loginButton.click();
     }
+
+    public boolean isErrorMessageDisplayed(String message) {
+        return loginPageLocators.errorMessage.getText().equals(message);
+    }
 }

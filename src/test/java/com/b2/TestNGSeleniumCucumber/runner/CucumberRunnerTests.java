@@ -4,10 +4,6 @@ package com.b2.TestNGSeleniumCucumber.runner;
  * create the Cucumber TestRunner class in this folder
  */
 
-import com.b2.TestNGSeleniumCucumber.utils.HelperClass;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 

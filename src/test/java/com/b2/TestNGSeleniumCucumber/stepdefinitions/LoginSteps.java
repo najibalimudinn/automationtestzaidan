@@ -51,4 +51,9 @@ public class LoginSteps {
         Assert.assertTrue(objHomePage.isRekapitulasiDisplayed(), "Assert is Rekapitulasi displayed");
         Assert.assertTrue(objHomePage.isProgresTransaksiPenerimaanDanaDisplayed(), "Assert is Progres Transaksi Penerimaan Dana displayed");
     }
+
+    @Then("User should be able to see {string}")
+    public void userShouldBeAbleToSee(String message) {
+        Assert.assertTrue(objLogin.isErrorMessageDisplayed(message), "Assert is error message displayed");
+    }
 }
