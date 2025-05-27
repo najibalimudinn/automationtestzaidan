@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
         tags = "",
         features = "src/test/resources/features",
         glue = "com.b2.TestNGSeleniumCucumber.stepdefinitions",
-        plugin = {"pretty", "html:target/report/cucumber-reports.html"},
+        plugin = {"pretty", "html:target/report/cucumber-reports.html", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         monochrome = true
 )
 

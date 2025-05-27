@@ -44,4 +44,4 @@ Feature: Login
 
     Examples:
         | username  | password  | un-successful login notification message  |
-        | indra     | admin123  | Incorrect username or password, please try again!              |
+        | indra     | admin123  | Username atau password salah              |

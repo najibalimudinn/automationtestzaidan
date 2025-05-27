@@ -12,15 +12,29 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cucumber.version>7.22.2</cucumber.version>
+        <cucumber.version>7.11.2</cucumber.version>
         <selenium.version>4.33.0</selenium.version>
         <webdrivermanager.version>6.1.0</webdrivermanager.version>
         <testng.version>7.9.0</testng.version>
         <slf4j.simple.version>1.7.36</slf4j.simple.version>
+        <allure.version>2.24.0</allure.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
 
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- Add cucumber dependency -->
@@ -66,6 +80,18 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.simple.version}</version>
         </dependency>
+
+        <!-- Add Allure TestNG dependency -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -105,6 +131,16 @@
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
+                    </configuration>
+                </plugin>
+
+                <!-- allure-maven-plugin -->
+                <plugin>
+                    <groupId>io.qameta.allure</groupId>
+                    <artifactId>allure-maven</artifactId>
+                    <version>2.14.0</version>
+                    <configuration>
+                        <reportVersion>2.28.0</reportVersion>
                     </configuration>
                 </plugin>
 

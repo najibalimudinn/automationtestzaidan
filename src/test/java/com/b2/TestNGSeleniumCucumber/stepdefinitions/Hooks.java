@@ -3,7 +3,6 @@ package com.b2.TestNGSeleniumCucumber.stepdefinitions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import com.b2.TestNGSeleniumCucumber.utils.HelperClass;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import io.cucumber.java.After;
