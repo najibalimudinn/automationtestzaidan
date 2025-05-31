@@ -1,0 +1,4 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","","0","Logout","1","0","Check whether logout is successful (session deleted) with ""bendahara"" credential","0"
+"0","","1","Login","0","0","Check login is successful with valid credentials as role ""bendahara""","0"
+"0","","1","Login","0","0","Check login is un-successful with invalid credentials. Its is username not registered","0"

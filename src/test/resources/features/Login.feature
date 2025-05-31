@@ -30,7 +30,14 @@ Feature: Login
     When User enters "<username>" & "<password>"
     And User clicks on login button
     Then User is navigated to the dashboard page
-    And User should be able to see navigation bar for bendahara
+    And User should be able to see navigation bar for bendahara:
+        | Dasbor                            |
+        | Tagihan Siswa                     |
+        | Transaksi Penerimaan Dana         |
+        | Pengaturan Notifikasi             |
+        | Status Pembayaran                 |
+        | Rekapitulasi                      |
+        | Progres Transaksi Penerimaan Dana |
 
     Examples:
       | username  | password  |

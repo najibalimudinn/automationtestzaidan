@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","14759","Check whether logout is successful (session deleted) with ""bendahara"" credential","","Sat May 31 20:42:53 WIB 2025","passed","Sat May 31 20:43:08 WIB 2025","","Logout","Check whether logout is successful (session deleted) with ""bendahara"" credential",""
+"","7843","Check login is successful with valid credentials as role ""bendahara""","","Sat May 31 20:42:39 WIB 2025","failed","Sat May 31 20:42:47 WIB 2025","","Login","Check login is successful with valid credentials as role ""bendahara""",""
+"","5741","Check login is un-successful with invalid credentials. Its is username not registered","","Sat May 31 20:42:47 WIB 2025","failed","Sat May 31 20:42:53 WIB 2025","","Login","Check login is un-successful with invalid credentials. Its is username not registered",""

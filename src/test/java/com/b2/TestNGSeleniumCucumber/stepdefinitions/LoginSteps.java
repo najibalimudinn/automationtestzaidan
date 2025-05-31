@@ -3,11 +3,14 @@ package com.b2.TestNGSeleniumCucumber.stepdefinitions;
 import com.b2.TestNGSeleniumCucumber.actions.HomePageActions;
 import com.b2.TestNGSeleniumCucumber.actions.LoginPageActions;
 import com.b2.TestNGSeleniumCucumber.utils.HelperClass;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+
+import java.util.List;
 
 public class LoginSteps {
     LoginPageActions objLogin = new LoginPageActions();
@@ -37,22 +40,19 @@ public class LoginSteps {
 
     @Then("User is navigated to the dashboard page")
     public void isNavigatedToDashboardPage() {
-        Assert.assertTrue(objHomePage.isPageTitleDisplayed(), "Assert is page title displayed");
+        Assert.assertEquals(objHomePage.getPageTitle(), "Dasbor - Bendahara", "Assert is page title displayed");
     }
 
-    @And("User should be able to see navigation bar for bendahara")
-    public void isUserAbleToSeeNavBar() {
-        Assert.assertTrue(objHomePage.isDasborDisplayed(), "Assert is Dasbor displayed");
-        Assert.assertTrue(objHomePage.isTagihanSiswaDisplayed(), "Assert is Tagihan Siswa displayed");
-        Assert.assertTrue(objHomePage.isTransaksiPenerimaanDanaDisplayed(), "Assert is Transaksi Penerimaan Dana displayed");
-        Assert.assertTrue(objHomePage.isPengaturanNotifikasiDisplayed(), "Assert is Pengaturan Notifikasi displayed");
-        Assert.assertTrue(objHomePage.isStatusPembayaranDisplayed(), "Assert is Status Pembayaran displayed");
-        Assert.assertTrue(objHomePage.isRekapitulasiDisplayed(), "Assert is Rekapitulasi displayed");
-        Assert.assertTrue(objHomePage.isProgresTransaksiPenerimaanDanaDisplayed(), "Assert is Progres Transaksi Penerimaan Dana displayed");
+    @And("User should be able to see navigation bar for bendahara:")
+    public void isUserAbleToSeeNavBar(DataTable dataTable) {
+        List<String> expectedNavItems = dataTable.asList(String.class);
+        List<String> actualNavItems = objHomePage.getNavbarItemsText();
+
+        Assert.assertEquals(actualNavItems, expectedNavItems, "Assert is navigation bar items displayed correctly");
     }
 
     @Then("User should be able to see {string}")
     public void userShouldBeAbleToSee(String message) {
-        Assert.assertTrue(objLogin.isErrorMessageDisplayed(message), "Assert is error message displayed");
+        Assert.assertEquals(objLogin.getErrorMessage(), message, "Assert is error message displayed");
     }
 }

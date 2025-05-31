@@ -21,19 +21,23 @@ public class LoginPageActions {
         loginPageLocators.loginButton.click();
     }
 
-    public boolean isErrorMessageDisplayed(String message) {
-        return loginPageLocators.errorMessage.getText().equals(message);
+    public String getErrorMessage() {
+        return loginPageLocators.errorMessage.getText();
     }
 
-    public boolean isLoginPageDisplayed(){
-        String expectedTitle = "Pengelolaan Dana Pendidikan Sekolah Zaidan Educare";
-        return (loginPageLocators.titleLogin.getText().equals(expectedTitle));
+    public String getPageTitle() {
+        return loginPageLocators.titleLogin.getText();
     }
 
-    public boolean isFormDisplayed(){
-        return
-        loginPageLocators.usernameField.isDisplayed() &
-        loginPageLocators.passwordField.isDisplayed() &
-        loginPageLocators.loginButton.isDisplayed();
+    public boolean isUsernameFieldDisplayed() {
+        return loginPageLocators.usernameField.isDisplayed();
+    }
+
+    public boolean isPasswordFieldDisplayed() {
+        return loginPageLocators.passwordField.isDisplayed();
+    }
+
+    public boolean isLoginButtonDisplayed() {
+        return loginPageLocators.loginButton.isDisplayed();
     }
 }

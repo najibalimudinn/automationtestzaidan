@@ -1,6 +1,7 @@
 package com.b2.TestNGSeleniumCucumber.utils;
 
 import java.time.Duration;
+import java.util.Map;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,13 +25,22 @@ public class HelperClass {
     //start chrome driver
     private HelperClass() {
         //Initiating your chromedriver
-        WebDriverManager.edgedriver().setup();
+        WebDriverManager.chromedriver().setup();
 
         //Initiating your chromedriver
-        EdgeOptions options = new EdgeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--remote-allow-origins=*"); // allowing to cors (lintas origin/domain), sumber : //https://www.rumahweb.com/journal/cors-adalah/
-        driver = new EdgeDriver(options);
+        options.setAcceptInsecureCerts(true); // opsi untuk menerima sertifikat yang tidak valid
+        options.addArguments("--disable-password-manager-reauthentication");
+        options.addArguments("--disable-save-password-bubble");
+        options.setExperimentalOption("prefs", Map.of(
+                "credentials_enable_service", false,
+                "profile.password_manager_enabled", false,
+                "profile.password_manager_leak_detection", false
+        ));
+        options.setAcceptInsecureCerts(true);
+        driver = new ChromeDriver(options);
 
         js = (JavascriptExecutor)driver;
 
