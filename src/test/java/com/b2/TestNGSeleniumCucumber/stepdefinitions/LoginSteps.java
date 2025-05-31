@@ -25,7 +25,6 @@ public class LoginSteps {
         Thread.sleep(2000);
     }
 
-
     @When("User enters {string} & {string}")
     public void userEntersCredential(String username, String password) {
         objLogin.inputCredentials(username, password);

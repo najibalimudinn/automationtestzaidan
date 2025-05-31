@@ -11,4 +11,11 @@ public class HomePageLocators {
 
     @FindBy(tagName = "li")
     public List<WebElement> navbarItems;
+
+    @FindBy(xpath = "/html/body/div[2]/main/div/div[1]/div/div/div[2]/button")
+    public WebElement logoutButton;
+
+    @FindBy(xpath = "//button[text()='Ya']")
+    public WebElement yaButton;
+
 }

@@ -24,4 +24,16 @@ public class LoginPageActions {
     public boolean isErrorMessageDisplayed(String message) {
         return loginPageLocators.errorMessage.getText().equals(message);
     }
+
+    public boolean isLoginPageDisplayed(){
+        String expectedTitle = "Pengelolaan Dana Pendidikan Sekolah Zaidan Educare";
+        return (loginPageLocators.titleLogin.getText().equals(expectedTitle));
+    }
+
+    public boolean isFormDisplayed(){
+        return
+        loginPageLocators.usernameField.isDisplayed() &
+        loginPageLocators.passwordField.isDisplayed() &
+        loginPageLocators.loginButton.isDisplayed();
+    }
 }

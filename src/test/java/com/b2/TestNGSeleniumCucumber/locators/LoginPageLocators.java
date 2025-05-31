@@ -15,4 +15,7 @@ public class LoginPageLocators {
 
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div/div[2]/div")
     public WebElement errorMessage;
+
+    @FindBy(tagName = "h1")
+    public WebElement titleLogin;
 }
